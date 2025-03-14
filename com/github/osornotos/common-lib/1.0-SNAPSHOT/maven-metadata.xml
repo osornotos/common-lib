@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.osornotos</groupId>
+  <artifactId>common-lib</artifactId>
+  <versioning>
+    <lastUpdated>20250314041626</lastUpdated>
+    <snapshot>
+      <timestamp>20250314.041626</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-20250314.041626-1</value>
+        <updated>20250314041626</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20250314.041626-1</value>
+        <updated>20250314041626</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0-SNAPSHOT</version>
+</metadata>
