@@ -1,0 +1,63 @@
+server:
+  port: 8082
+  shutdown: graceful
+  servlet:
+    context-path: /
+  tomcat:
+    threads:
+      max: 400
+  http2:
+    enabled: true
+
+# Spring config
+spring:
+  application:
+    name: common-lib
+  #  profiles:
+  #    active: default
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    #    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        hql.bulk_id_strategy.global_temporary.create_tables: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${ENV_DB_USERNAME:temporal}
+    password: ${ENV_DB_PASSWORD:temporal}
+    url: ${ENV_DB_URL:jdbc:postgresql://localhost:5432/postgres?currentSchema=public}
+    hikari:
+      #maximum-pool-size: ${ENV_DB_MAX_POOL_SIZE}
+      #minimum-idle: ${ENV_DB_MINIMUM_IDLE}
+      #connection-timeout: 30000
+      idle-timeout: 600000 #10 minutes
+      max-lifetime: 1800000 #30 minutes
+      data-source-properties:
+        reWriteBatchedInserts: true
+  batch:
+    jdbc:
+      initialize-schema: always
+      schema: classpath:org/springframework/batch/core/schema-postgresql.sql
+    job:
+      enabled: false
+  sql:
+    init:
+      mode: always
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.tcb.pp: DEBUG
+
+
+ENV_MULE_CLOUD_URL: http://localhost:8089
